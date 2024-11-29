@@ -1,4 +1,4 @@
-// Correspondance des départements
+//départements
 const departements = {
     "01": "Ain",
     "02": "Aisne",
@@ -94,22 +94,15 @@ const departements = {
     "93": "Seine-Saint-Denis",
     "94": "Val-de-Marne",
     "95": "Val-d'Oise",
-    "971": "Guadeloupe",
-    "972": "Martinique",
-    "973": "Guyane",
-    "974": "La Réunion",
-    "976": "Mayotte"
   };
   
   // Initialisation de la carte
   const map = L.map('map-dep').setView([46.9, 2], 6);
-  
-  // Ajouter un fond de carte OpenStreetMap
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
   
-  // Charger et afficher les données
+
   async function chargerDonnees() {
     try {
       const response = await fetch('data-map.json');
@@ -118,10 +111,10 @@ const departements = {
     // Filtrer les données de 1958 à 2022
     const donneesFiltrees = donnees.filter(d => d.source.match(/\d+/) >= 1958);
 
-    // Extraire les années disponibles
+    // Extraire les années
     const anneesDisponibles = [...new Set(donneesFiltrees.map(d => d.source.match(/\d+/)[0]))].sort();
 
-    // Initialiser le sélecteur d'années
+    // Sélecteur d'années
     const yearSelector = document.getElementById('yearSelector');
     anneesDisponibles.forEach(annee => {
       const option = document.createElement('option');
@@ -131,13 +124,13 @@ const departements = {
     });
 
     // Afficher la dernière année par défaut
-    const derniereAnnee = anneesDisponibles[anneesDisponibles.length - 1]; // Dernière année du tableau trié
-    yearSelector.value = derniereAnnee; // Sélectionner la dernière année dans le sélecteur
-    afficherCarte(donneesFiltrees, derniereAnnee); // Afficher les données pour la dernière année
+    const derniereAnnee = anneesDisponibles[anneesDisponibles.length - 1]; 
+    yearSelector.value = derniereAnnee; 
+    afficherCarte(donneesFiltrees, derniereAnnee); 
 
       // Afficher les données pour une année donnée
       yearSelector.addEventListener('change', () => afficherCarte(donneesFiltrees, yearSelector.value));
-      afficherCarte(donneesFiltrees, anneesDisponibles[anneesDisponibles.length-1]); // Afficher la première année par défaut
+      afficherCarte(donneesFiltrees, anneesDisponibles[anneesDisponibles.length-1]);
     } catch (error) {
       console.error('Erreur lors du chargement des données :', error);
     }
@@ -155,7 +148,6 @@ const departements = {
       departementsData[dep].votants += votants;
     });
   
-    // Calculer les taux d'abstention
     const tauxAbstentionParDepartement = {};
     Object.entries(departementsData).forEach(([dep, { inscrits, votants }]) => {
       tauxAbstentionParDepartement[dep] = ((inscrits - votants) / inscrits) * 100;
@@ -168,58 +160,51 @@ const departements = {
   async function afficherCarte(donnees, annee) {
     const tauxAbstentionParDepartement = calculerAbstentionParDepartement(donnees, annee);
   
-    // Charger le GeoJSON des départements français
     const geojsonUrl = 'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson';
   
     fetch(geojsonUrl)
       .then(response => response.json())
       .then(geojsonData => {
-        // Supprimer les couches précédentes
         map.eachLayer(layer => {
           if (layer.options && !layer._url) map.removeLayer(layer);
         });
   
-        // Appliquer des styles dynamiques
         function getStyle(feature) {
           const dep = feature.properties.code;
           const taux = tauxAbstentionParDepartement[dep] || 0;
   
           let fillColor;
           if (taux < 20) {
-            fillColor = '#4d94ff'; // Bleu clair
+            fillColor = '#4d94ff';
           } else if (taux < 30) {
-            fillColor = '#85e085'; // Vert clair
+            fillColor = '#85e085'; 
           } else if (taux < 40) {
-            fillColor = '#ffeb99'; // Jaune
+            fillColor = '#ffeb99'; 
           } else if (taux < 50) {
-            fillColor = '#ffa64d'; // Orange
+            fillColor = '#ffa64d';
           } else {
-            fillColor = '#ff4d4d'; // Rouge
+            fillColor = '#ff4d4d';
           }
   
           return {
             fillColor,
             fillOpacity: 0.7,
             weight: 1,
-            color: '#333' // Contour
+            color: '#000000'
           };
         }
   
-        // Ajouter des info-bulles
         function onEachFeature(feature, layer) {
           const dep = feature.properties.code;
           const taux = tauxAbstentionParDepartement[dep]?.toFixed(2) || "Non disponible";
           layer.bindPopup(`<strong>${departements[dep]}</strong><br>Taux d'abstention en ${annee} : ${taux}%`);
         }
   
-        // Ajouter les départements sur la carte
         L.geoJson(geojsonData, {
           style: getStyle,
           onEachFeature: onEachFeature
         }).addTo(map);
       })
-      .catch(error => console.error('Erreur lors du chargement du GeoJSON :', error));
   }
   
-  // Lancer le chargement des données
   chargerDonnees();

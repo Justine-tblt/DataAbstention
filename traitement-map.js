@@ -94,23 +94,16 @@ const departementsRegions = {
   "93": "Île-de-France",
   "94": "Île-de-France",
   "95": "Île-de-France",
-  "971": "Guadeloupe",
-  "972": "Martinique",
-  "973": "Guyane",
-  "974": "La Réunion",
-  "976": "Mayotte"
 };
 
 
 
 const map = L.map('map').setView([46.9, 2], 6);
-
-// Ajouter un fond de carte OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// Charger et afficher les données
+
 async function chargerDonnees() {
   try {
     const response = await fetch('data-map.json');
@@ -122,7 +115,6 @@ async function chargerDonnees() {
     // Extraire les années disponibles
     const anneesDisponibles = [...new Set(donneesFiltrees.map(d => d.source.match(/\d+/)[0]))].sort();
 
-    // Initialiser le sélecteur d'années
     const yearSelector = document.getElementById('yearSelector');
     anneesDisponibles.forEach(annee => {
       const option = document.createElement('option');
@@ -132,14 +124,14 @@ async function chargerDonnees() {
     });
 
     // Afficher la dernière année par défaut
-    const derniereAnnee = anneesDisponibles[anneesDisponibles.length - 1]; // Dernière année du tableau trié
-    yearSelector.value = derniereAnnee; // Sélectionner la dernière année dans le sélecteur
-    afficherCarte(donneesFiltrees, derniereAnnee); // Afficher les données pour la dernière année
+    const derniereAnnee = anneesDisponibles[anneesDisponibles.length - 1]; 
+    yearSelector.value = derniereAnnee; 
+    afficherCarte(donneesFiltrees, derniereAnnee); 
 
 
     // Afficher les données pour une année donnée
     yearSelector.addEventListener('change', () => afficherCarte(donneesFiltrees, yearSelector.value));
-    afficherCarte(donneesFiltrees, annees[annees0]); // Afficher la première année par défaut
+    afficherCarte(donneesFiltrees, annees[annees0]); 
   } catch (error) {
     console.error('Erreur lors du chargement des données :', error);
   }
@@ -158,7 +150,6 @@ function calculerAbstentionParRegion(donnees, annee) {
     regions[region].votants += votants;
   });
 
-  // Calculer les taux d'abstention
   const tauxAbstentionParRegion = {};
   Object.entries(regions).forEach(([region, { inscrits, votants }]) => {
     tauxAbstentionParRegion[region] = ((inscrits - votants) / inscrits) * 100;
@@ -171,33 +162,31 @@ function calculerAbstentionParRegion(donnees, annee) {
 async function afficherCarte(donnees, annee) {
   const tauxAbstentionParRegion = calculerAbstentionParRegion(donnees, annee);
 
-  // Charger le GeoJSON des régions françaises
   const geojsonUrl = 'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions-version-simplifiee.geojson';
 
   fetch(geojsonUrl)
     .then(response => response.json())
     .then(geojsonData => {
-      // Supprimer les couches précédentes
+
       map.eachLayer(layer => {
         if (layer.options && !layer._url) map.removeLayer(layer);
       });
 
-      // Appliquer des styles dynamiques
       function getStyle(feature) {
         const region = feature.properties.nom;
         const taux = tauxAbstentionParRegion[region] || 0;
 
         let fillColor;
         if (taux < 20) {
-          fillColor = '#4d94ff'; // Bleu clair
+          fillColor = '#4d94ff'; 
         } else if (taux < 30) {
-          fillColor = '#85e085'; // Vert clair
+          fillColor = '#85e085'; 
         } else if (taux < 40) {
-          fillColor = '#ffeb99'; // Jaune
+          fillColor = '#ffeb99'; 
         } else if (taux < 50) {
-          fillColor = '#ffa64d'; // Orange
+          fillColor = '#ffa64d';
         } else {
-          fillColor = '#ff4d4d'; // Rouge
+          fillColor = '#ff4d4d'; 
         }
 
 
@@ -209,14 +198,12 @@ async function afficherCarte(donnees, annee) {
         };
       }
 
-      // Ajouter des info-bulles
       function onEachFeature(feature, layer) {
         const region = feature.properties.nom;
         const taux = tauxAbstentionParRegion[region]?.toFixed(2) || "Non disponible";
         layer.bindPopup(`<strong>${region}</strong><br>Taux d'abstention en ${annee} : ${taux}%`);
       }
 
-      // Ajouter les régions sur la carte
       L.geoJson(geojsonData, {
         style: getStyle,
         onEachFeature: onEachFeature
@@ -225,5 +212,4 @@ async function afficherCarte(donnees, annee) {
     .catch(error => console.error('Erreur lors du chargement du GeoJSON :', error));
 }
 
-// Lancer le chargement des données
 chargerDonnees();

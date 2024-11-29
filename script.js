@@ -80,3 +80,11 @@ fetch('data.json')
     const ctx = document.getElementById('evolution-abstention').getContext('2d');
     new Chart(ctx, config); 
   })
+
+
+
+
+
+
+
+  
