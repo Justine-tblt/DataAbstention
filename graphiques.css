@@ -1,0 +1,171 @@
+
+:root {
+    --background-blue: #3A5BC7;
+    --background-red: #D13415;
+    --background-white: #fdf1f1;
+    --text-color: #191919;
+    --decoration-brown: #D2C7AE;
+
+}
+
+
+.regionalrates h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#map {
+    width: 1200px;
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+
+.controls button {
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--background-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: var(--background-white) solid 1px;
+    height: 44px;
+    font-size: 1rem;
+}
+
+.controls button.active {
+    background-color: var(--background-red);
+    color: white;
+}
+
+.controls button:hover:not(.active) {
+    background-color: var(--background-white);
+    color: var(--text-color);
+}
+
+.controls button:active:not(.active) {
+    background-color: #003d80;
+}
+
+.controls select {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 44px;
+    border: var(--background-white) solid 1px;
+    font-size: 1rem;
+
+
+}
+
+
+.legend {
+    display: flex;
+    background-color: white;
+    padding: 15px;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    height: fit-content;
+    margin-bottom: 20px;
+}
+
+
+.legend h3{
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.box{
+    border-top: solid rgb(199, 193, 193) 1px;
+    margin-bottom: 20px;
+}
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.color {
+    width: 40px;
+    height: 20px;
+    margin-right: 5px;
+    border: 1px solid #000;
+}
+.blue { background-color: #297cf8; }
+.green { background-color: #47bd47; }
+.yellow { background-color: #fadf72; }
+.orange { background-color: #ee9235; }
+.red { background-color: #e23333; }
+
+
+details {
+    padding: 8px;
+    max-width: 300px;
+    background-color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  summary {
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
+
+  }
+  
+  details[open] {
+    padding: 0.5em;
+  }
+  
+  details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 0.5em;
+  }
+  
+
+.other-legend{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.src-map{
+    padding: 15px;
+    max-width: 400px;
+    background-color: var(--background-white);
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 0;
+}
+
+.src-map a {
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.src-map a:hover{
+    color: var(--background-red);
+}
+
+.highlight{
+    font-weight: bold;
+}
+
+.nb{
+    color: var(--text-color);
+}

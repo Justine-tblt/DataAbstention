@@ -1,18 +1,20 @@
+//GRAPHIQUE
+
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
 
     //Extraction des années et des taux d'abstention
-    const years = data.donnees.map(item => item.annee); //années
-    const values = data.donnees.map(item => item.taux_abstention); //taux d'abstention
+    const years = data.donnees.map(item => item.annee);
+    const values = data.donnees.map(item => item.taux_abstention); 
 
     //Configuration du graphique
     const config = {
-      type: 'line', //graphique en ligne
+      type: 'line',
       data: {
-        labels: years, //Données en abscisses
+        labels: years, 
         datasets: [{
-          label: 'Taux d\'abstention (%)', //legende
+          label: 'Taux d\'abstention (%)',
           data: values,
           fill: true, 
           borderColor: '#3A5BC7', 
@@ -74,17 +76,9 @@ fetch('data.json')
 
 
    
-      
-
-    // Création du graphique
     const ctx = document.getElementById('evolution-abstention').getContext('2d');
     new Chart(ctx, config); 
   })
 
 
 
-
-
-
-
-  

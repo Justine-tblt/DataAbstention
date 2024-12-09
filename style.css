@@ -14,6 +14,20 @@
 
 }
 
+.sr-only {
+    background-color: #ffffff;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+
 
 body {
     margin: 0;
@@ -37,46 +51,6 @@ body {
     text-transform: uppercase;
     margin: 0;
 }
-
-.shapes {
-    position: relative;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.circle {
-    width: 120px;
-    height: 120px;
-    background-color: var(--background-blue);
-    border-radius: 50%;
-    position: absolute;
-    top: 30px;
-    left: -600px;
-}
-
-.triangle {
-    display: inline-block;
-    height: 0;
-    width: 0;
-    border-right: 80px solid transparent;
-    border-bottom: 150px solid var(--decoration-brown);
-    border-left: 70px solid transparent;
-    transform: rotate(45deg);
-    position: absolute;
-    top: 0;
-    right: -600px;
-
-}
-
-.rectangle {
-    width: 70px;
-    height: 30px;
-    background-color: var(--background-red);
-    position: absolute;
-    left: -30px;
-    transform: rotate(45deg);
-}
-
 
 .hand-image {
     width: 500px;
@@ -166,7 +140,14 @@ body {
 
 .regionalrates {
     background-image: url(img/noise2000x728.png);
+    padding: 15px;
+   
+}
 
+.frenchmap{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .today {
@@ -175,31 +156,30 @@ body {
     padding-top: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 
 .txt-today h2{
     font-size: 2rem;
     text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-.txt-today{
-    flex-direction: column;
-    gap: 20px;
-    max-width: 1024px;
-}
 
 .txt-today p{
     font-size: 1.2rem;
 }
 
-.img-today img{
-    width: 400px;
+.fists{
+    height: 150px;
+    transform: rotate(90deg); 
+    margin-left: 0;
 }
 
-.img-today{
-    margin-bottom: -4px;
+.loudspeaker{
+    height: 400px;
 }
 
 

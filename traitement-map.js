@@ -1,4 +1,3 @@
-// // Correspondance départements → régions
 const departementsRegions = {
   "01": "Auvergne-Rhône-Alpes",
   "02": "Hauts-de-France",

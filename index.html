@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="graphique1.css">
-    <!--Favicon-->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="stylesheet" href="graphiques.css">
+
+
+    
     <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -27,6 +29,7 @@
     <title>Accueil - DataAbstention</title>
 </head>
 <body>
+
     <section class="home-danger">
         <p class="danger"><i class="fa-solid fa-triangle-exclamation"></i> Le site est actuellement en cours de création.</p>
 
@@ -37,17 +40,11 @@
         
         <div>
             <h1 class="uppercase">la france<br>sans voix</h1>
-          
-          <!-- <div class="shapes">
-            <div class="circle"></div>
-            <div class="triangle"></div>
-            <div class="rectangle"></div>
-          </div> -->
         </div>
 
 
         <div class="img-hand">
-            <img src="img/hand.png" alt="" class="hand-image">
+            <img src="img/hand-electoralmap.png" alt="" class="hand-image">
         </div>
 
         <div class="arrow"><i class="fa-solid fa-arrow-right fa-rotate-90"></i></div>
@@ -58,10 +55,12 @@
         <p>Site Databstention créé par Justine, Laure et Ramata</p>
     </section>
 
+
+
     <section class="definition">
 
         <div class="img-def">
-            <img src="img/img-sign.png" alt="">
+            <img src="img/sign.png" alt="">
         </div>
 
         <div class="txt-def">
@@ -79,6 +78,10 @@
         </div>
 
     </section>
+
+
+
+
     <section class="electionrate">
         <h2>Évolution du taux d'abstention des francais</h2>
         <canvas id="evolution-abstention" width="700" height="400"></canvas>
@@ -86,32 +89,81 @@
     </section> 
 
     <section class="regionalrates">
-        <h2>Taux d'abstention par régions</h2>
-        <label for="yearSelector">Choisissez une année :</label>
-        <select id="yearSelector"></select>
-        
-        <div id="map"></div>
 
-<!--         
-    <h2>Taux d'abstention par département</h2>
-    <label for="yearSelector">Choisissez une année :</label>
-    <select id="yearSelector"></select>
+        <h2>Analyse régionale et départementale par année</h2>
+
+        <div class="controls">
+            <div class="localisation">
+                <button id="btn-regions" class="active">Afficher par régions</button>
+                <button id="btn-departements">Afficher par départements</button>
+            </div>
+
+            <div class="year">
+                <label for="yearSelector"><span class="arrow sr-only">Sélectionnez une année</span></label>
+                <select id="yearSelector"></select>
+                <div id="currentYear" style="display: none;"></div>
+            </div>
     
-    <div id="map-dep" style="width: 100%; height: 500px"></div> -->
-
-
-
+        </div>
+        
+        
+        <div class="frenchmap">
+            <div id="map" style="height: 710px"></div>
+        
+            <div class="txt-map">
+                <div class="legend">
+                    <h3>Légende</h3>
+                    <div class="box"></div>
+                    <div class="item">
+                        <div class="color blue"></div>
+                        <span>&lt; 20%</span>
+                    </div>
+                    <div class="item">
+                        <div class="color green"></div>
+                        <span>21% - 30%</span>
+                    </div>
+                    <div class="item">
+                        <div class="color yellow"></div>
+                        <span>31% - 40%</span>
+                    </div>
+                    <div class="item">
+                        <div class="color orange"></div>
+                        <span>41% - 50%</span>
+                    </div>
+                    <div class="item">
+                        <div class="color red"></div>
+                        <span>&gt; 51%</span>
+                    </div>
+                </div>
+                <details open>
+                    <summary>Pourquoi ce phénomène est différent selon notre lieu de résidence ?</summary>
+                    Le taux d’abstention varie selon les zones en France à cause des différences socio-économiques et culturelles. En ville, l’individualisme et le désintérêt jouent un rôle, tandis que les zones rurales votent plus grâce aux liens locaux. Les territoires précaires s’abstiennent souvent par déception, alors que les régions avec une population plus âgée votent davantage. L’offre politique locale influence aussi cet engagement.
+                </details>
+                <details>
+                    <summary>Pourquoi le taux ne cesse d'augmenter ?</summary>
+                    Depuis 2007, le taux d’abstention aux élections législatives n’a cessé de progresser, reflétant un désintérêt croissant des électeurs. L’élection présidentielle, perçue comme l’échéance majeure, occulte les législatives, souvent vues comme secondaires. Le manque de confiance dans les institutions et les élus, ajouté à l’impression que le vote ne change pas les réalités locales ou nationales, nourrit cette tendance. Cette hausse est particulièrement marquée dans les régions où la précarité domine, tandis que les zones à forte tradition électorale résistent mieux à ce phénomène.
+                </details>
+            </div>
+    </div>
+        
+    <div class="other-legend">
+        <p class="src-map">Source:&nbsp;<a href="https://unehistoireduconflitpolitique.fr/telecharger.html">Une Histoire du Conflit Politique</a></p>
+        <p class="nb"><span class="highlight">Remarque:</span> pour observer plus clairement l'évolution du taux, sélectionnez la première année disponible et utilisez la flèche vers le bas <i class="fa-solid fa-circle-arrow-down"></i></p>
+    </div>
 
     </section>
+
+
+
+
     
     <section class="today">
+        <img src="img/fists.png" alt="" class="fists">
         <div class="txt-today">
             <h2>Et aujourd'hui ?</h2>
             <p>La victoire du Rassemblement National aux élections européennes de 2024 a été un tournant significatif, illustrant la poussée de l'extrême droite en France et une division croissante au sein de l'électorat. Ce résultat a accentué le sentiment de déconnexion des électeurs avec les partis traditionnels, incitant Emmanuel Macron à prendre une mesure exceptionnelle : la dissolution de l’Assemblée nationale. Cette décision est une réponse à la crise politique, cherchant à redonner une légitimité démocratique en permettant aux Français de se prononcer à nouveau sur leurs représentants. Cette action est aussi perçue comme un moyen de restaurer un équilibre politique et de renouveler les mandats à un moment de tensions intenses. <br><br>Néanmoins, cette démarche est loin d’être sans risques. En convoquant de nouvelles élections législatives, Macron pourrait renforcer l'opposition, ou pire, déboucher sur une situation de cohabitation, comme cela s'est produit après la dissolution de 1997 sous Jacques Chirac. En effet, cette stratégie pourrait aggraver la fragmentation politique déjà présente, où la montée de l’extrême droite et le déclin des partis classiques rendent le climat incertain. Cette dissolution met en lumière les enjeux actuels des institutions françaises, en particulier la défiance croissante envers les partis traditionnels et une possible reconfiguration du paysage politique. L'issue de ces élections pourrait marquer un nouveau rééquilibrage des forces, avec une réaffirmation ou une remise en question du pouvoir en place .</p>
         </div>
-        <div class="img-today">
-            <img src="img/fists.png" alt="">
-        </div>
+        <img src="img/loudspeaker.png" alt="" class="loudspeaker">
     </section>
     
     <footer></footer>
@@ -119,10 +171,9 @@
 
 
     
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
-  <script src="traitement-map.js"></script>
-  <!-- <script src="dep.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="graphiques.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
