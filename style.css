@@ -5,6 +5,27 @@
 }
 
 
+
+@font-face {
+    font-family: "Roboto Bold";
+    src: url('fonts/Roboto-Bold.woff2') format('woff2'),
+        url('fonts/Roboto-Bold.woff') format('woff');
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: "Roboto";
+    src: url('fonts/Roboto-Regular.woff2') format('woff2'),
+        url('fonts/Roboto-Regular.woff') format('woff');
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+}
+
 :root {
     --background-blue: #3A5BC7;
     --background-red: #D13415;
@@ -13,6 +34,7 @@
     --decoration-brown: #D2C7AE;
 
 }
+
 
 .sr-only {
     background-color: #ffffff;
@@ -27,18 +49,18 @@
     border: 0 !important;
 }
 
-
+/* 
 .bebas-neue-regular {
     font-family: "Bebas Neue", serif;
     font-weight: 400;
     font-style: normal;
-  }
+  } */
 
   
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Roboto";
 }
 
 .title{
@@ -158,7 +180,7 @@ body {
 
 
 .electionrate {
-    background-color: var(--background-white);
+    background-image: url(img/img-noise-2000x200-red.png);
     padding: 30px;
 }
 
@@ -176,7 +198,8 @@ body {
     background-color: var(--background-blue);
     font-weight: bold;
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
     color: var(--background-white);
     margin-inline: auto;
     justify-content: center;
@@ -228,11 +251,17 @@ body {
     flex-direction: column;
 }
 
+.txt-today p{
+    text-indent: 20px;
+    margin-top: 0;
+}
+
+
 .txt-today h3 {
     font-size: 2rem;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     margin-top: 10px;
 }
 
@@ -288,7 +317,7 @@ h2{
 
 
 footer {
-    background-image: url(img/img-noise-2000x200-red.png);
+    background-color: black;
     height: 28vh;
     padding: 15px;
     display: flex;
@@ -306,17 +335,19 @@ footer ul{
     flex-direction: row;
     list-style-type: none;
     gap: 50px;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .contact-footer{
     display: flex;
     justify-content: center;
     gap: 50px;
-    background-color: var(--text-color);
     padding: 20px;
     max-width: 700px;
     margin-inline: auto;
 }
+
 
 .contact{
     color: var(--background-white);
@@ -339,21 +370,13 @@ footer ul{
     color: var(--background-blue);
 }
 
-.ml{
-    background-color: var(--background-blue);
-    color: #fdf1f1;
-    border-radius: 50px;
-    padding: 15px;
+
+footer ul a,
+.copyright{
+    color: var(--background-white);
+    display: flex;
+    justify-content: center;
 }
-
-
-.src{
-    background-color: var(--background-red);
-    color: #fdf1f1;
-    border-radius: 50px;
-    padding: 15px;
-}
-
 
 #map {
     height: 600px;
@@ -365,7 +388,10 @@ footer ul{
   
   
 canvas {
-    margin: auto;
+    margin-right: 50px;
+    background-color: white; 
+    padding: 10px; 
+
 }
   
 
@@ -457,3 +483,60 @@ canvas {
     padding: 15px;
 }
 
+
+/*tableau*/
+
+table {
+    border-collapse: collapse;
+    max-width: 300px;
+    margin-top: 20px;
+    font-size: 0.8rem;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: var(--background-blue);
+    font-weight: bold;
+    color: var(--background-white);
+  }
+
+
+  .evolution-data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+  }
+
+  .tab{
+    background-color: var(--background-white);
+    padding: 25px;
+    padding-top: 0;
+  }
+
+  caption{
+    font-weight: bold;
+    color: #666666;
+    margin-bottom: 10px;
+  }
+
+  .imp-terms{
+    font-weight: bold;
+  }
+
+  .txt-today a{
+    color: var(--background-red);
+    font-weight: bold;
+    transition: color 0.8 ease-in;
+  }
+
+  
+  .txt-today a:hover{
+    color: var(--background-blue);
+    font-weight: bold;
+  }

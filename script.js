@@ -4,6 +4,22 @@ fetch('data.json')
   .then(response => response.json())
   .then(data => {
 
+    const table = document.getElementById('table-abstention');
+
+    // Génération des lignes du tableau
+    data.donnees.forEach(item => {
+      const row = document.createElement('tr');
+      const annee = document.createElement('td');
+      const taux = document.createElement('td');
+
+      annee.textContent = item.annee;
+      taux.textContent = item.taux_abstention + item.unite;
+
+      row.appendChild(annee);
+      row.appendChild(taux);
+      table.appendChild(row);
+    });
+  
     //Extraction des années et des taux d'abstention
     const years = data.donnees.map(item => item.annee);
     const values = data.donnees.map(item => item.taux_abstention); 

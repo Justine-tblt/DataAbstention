@@ -47,7 +47,7 @@
             <img src="img/hand-electoralmap.png" alt="" class="hand-image">
         </div>
 
-        <a href="#presentation">
+        <a href="#definition">
             <span class="scroll-down reveal"></span>
             <span class="sr-only">Aller au contenu</span>
         </a>
@@ -55,7 +55,7 @@
 
 
 
-    <section class="definition">
+    <section class="definition" id="definition">
 
         <img src="img/sign.png" alt="" class="img-def">
 
@@ -80,8 +80,30 @@
 
     <section class="electionrate">
         <h3>Évolution du taux d'abstention des francais</h3>
-        <canvas id="evolution-abstention" width="800" height="500" class="canvas"></canvas>
+
+        <div class="evolution-data">
+            <div>
+                <canvas id="evolution-abstention" width="900" height="600" class="canvas"></canvas>
+            </div>
+            <div class="tab">
+                <table id="table-abstention">
+                    <caption>Tableau de l'évolution du taux d'abstention des francais</caption>
+                    <tr>
+                      <th>Année</th>
+                      <th>Taux d'abstention (%)</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
         <p class="src-map">Source:&nbsp;<a href="https://fr.statista.com/statistiques/714497/taux-abstention-france-legislatives-1er-tour/">Statista</a></p>
+
+        
+          
+
+
+
 
     </section> 
 
@@ -133,7 +155,7 @@
                     </div>
                 </div>
                 <details open>
-                    <summary>Pourquoi ce phénomène est différent selon notre lieu de résidence ?</summary>
+                    <summary>Pourquoi ce phénomène varie-t-il selon notre lieu de résidence ?</summary>
                     Le taux d’abstention varie selon les zones en France à cause des différences socio-économiques et culturelles. En ville, l’individualisme et le désintérêt jouent un rôle, tandis que les zones rurales votent plus grâce aux liens locaux. Les territoires précaires s’abstiennent souvent par déception, alors que les régions avec une population plus âgée votent davantage. L’offre politique locale influence aussi cet engagement.
                 </details>
                 <details>
@@ -159,7 +181,14 @@
 
         <div class="txt-today">
             <h3>Et aujourd'hui ?</h3>
-            <p>La victoire du Rassemblement National aux élections européennes de 2024 a été un tournant significatif, illustrant la poussée de l'extrême droite en France et une division croissante au sein de l'électorat. Ce résultat a accentué le sentiment de déconnexion des électeurs avec les partis traditionnels, incitant Emmanuel Macron à prendre une mesure exceptionnelle : la dissolution de l’Assemblée nationale. Cette décision est une réponse à la crise politique, cherchant à redonner une légitimité démocratique en permettant aux Français de se prononcer à nouveau sur leurs représentants. Cette action est aussi perçue comme un moyen de restaurer un équilibre politique et de renouveler les mandats à un moment de tensions intenses. <br><br>Néanmoins, cette démarche est loin d’être sans risques. En convoquant de nouvelles élections législatives, Macron pourrait renforcer l'opposition, ou pire, déboucher sur une situation de cohabitation, comme cela s'est produit après la dissolution de 1997 sous Jacques Chirac. En effet, cette stratégie pourrait aggraver la fragmentation politique déjà présente, où la montée de l’extrême droite et le déclin des partis classiques rendent le climat incertain. Cette dissolution met en lumière les enjeux actuels des institutions françaises, en particulier la défiance croissante envers les partis traditionnels et une possible reconfiguration du paysage politique. L'issue de ces élections pourrait marquer un nouveau rééquilibrage des forces, avec une réaffirmation ou une remise en question du pouvoir en place .</p>
+            <p>La victoire du <span class="imp-terms">Rassemblement National aux élections européennes de 2024</span> a marqué un tournant décisif pour la politique française. Ce succès, illustrant la montée de l’extrême droite, a accentué la division croissante au sein de l’électorat et renforcé le sentiment de déconnexion des citoyens avec les partis traditionnels. Ce climat de mécontentement a poussé Emmanuel Macron à prendre une décision exceptionnelle: <span class="imp-terms">la dissolution de l'Assemblée nationale</span>.</p>  
+
+            <p>Cette mesure a été perçue comme une réponse à la crise politique actuelle, cherchant à redonner légitimité démocratique en offrant aux Français la possibilité de renouveler leurs représentants. Dans ce contexte tendu, le taux d'abstention observé lors du <span class="imp-terms">premier tour des élections législatives de 2024 a chuté à 33,3 %</span>, marquant une nette amélioration par rapport aux <span class="imp-terms">53,2 % enregistrés en 2022</span>. Ce regain de participation témoigne d'une volonté de la part des électeurs de réaffirmer leur engagement dans un contexte politique incertain.</p>            
+                        
+            <p>Cependant, la démarche d'Emmanuel Macron comportait des risques importants. Ce retour de l'engagement électoral a renforcé l’opposition, notamment le <span class="imp-terms">Rassemblement National</span>, qui a marqué une avancée notable. Loin de favoriser la stabilité, la dissolution a ouvert la voie à une <span class="imp-terms">concentration de pouvoir dans les partis extrêmes</span>, contribuant à une <span class="imp-terms">fragmentation politique</span> accrue. Le scénario de cohabitation, similaire à 1997 sous <a href="https://fr.wikipedia.org/wiki/Jacques_Chirac">Jacques Chirac</a>, reste un risque, mais il est désormais accompagné de la montée en puissance de forces politiques autres que celles traditionnelles.</p>
+
+            <p>La dissolution met en lumière les enjeux cruciaux des institutions françaises actuelles: la <span class="imp-terms">méfiance croissante</span> envers les partis traditionnels et la possibilité d’une reconfiguration du paysage politique. Le taux d’abstention, bien qu’en baisse, reste un indicateur de cette défiance persistante. Les élections à venir pourraient donc marquer un nouveau rééquilibrage des forces politiques, soit par une réaffirmation du pouvoir en place, soit par un renversement de celui-ci.</p>
+
         </div>
         
         <img src="img/loudspeaker.png" alt="" class="loudspeaker">
@@ -167,27 +196,28 @@
     
 
     <footer>
-        <div class="contact-footer">
-            <div class="contact">
-                <a href="https://www.linkedin.com/in/justinethebault/"><i class="fa-brands fa-linkedin"></i><span class="sr-only">Accéder au profil linkedin de Justine Thebault</span></a>
-                <p>Justine THEBAULT</p>
+            <div class="contact-footer">
+                <div class="contact">
+                    <a href="https://www.linkedin.com/in/justinethebault/"><i class="fa-brands fa-linkedin"></i><span class="sr-only">Accéder au profil linkedin de Justine Thebault</span></a>
+                    <p>Justine THEBAULT</p>
+                </div>
+                <div class="contact">
+                    <a href="https://www.linkedin.com/in/justinethebault/"><i class="fa-brands fa-linkedin"></i><span class="sr-only">Accéder au profil linkedin de Justine Thebault</span></a>
+                    <p>Justine THEBAULT</p>
+                </div>
+                <div class="contact">
+                    <a href="https://www.linkedin.com/in/justinethebault/"><i class="fa-brands fa-linkedin"></i><span class="sr-only">Accéder au profil linkedin de Justine Thebault</span></a>
+                    <p>Justine THEBAULT</p>
+                </div>
             </div>
-            <div class="contact">
-                <a href="https://www.linkedin.com/in/justinethebault/"><i class="fa-brands fa-linkedin"></i><span class="sr-only">Accéder au profil linkedin de Justine Thebault</span></a>
-                <p>Justine THEBAULT</p>
-            </div>
-            <div class="contact">
-                <a href="https://www.linkedin.com/in/justinethebault/"><i class="fa-brands fa-linkedin"></i><span class="sr-only">Accéder au profil linkedin de Justine Thebault</span></a>
-                <p>Justine THEBAULT</p>
-            </div>
-        </div>
 
-        <ul>
-            <li><a href="mentionslegales.html">Mentions légales  <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
-            <li><a href="src.html">Sources  <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
-        </ul>
-
-        <p class="copyright">&copy; 2024 Databstention. Tous droits réservés.</p>
+            <ul>
+                <li><a href="mentionslegales.html">Mentions légales  <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                <li><a href="src.html">Sources  <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            </ul>
+    
+            <br>
+            <p class="copyright">&copy; 2024 Databstention. Tous droits réservés.</p>
 
     </footer>
 
