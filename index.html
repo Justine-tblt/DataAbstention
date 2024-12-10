@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="graphique1.css">
     <link rel="stylesheet" href="graphiques.css">
-
 
     
     <!--FONT AWESOME-->
@@ -22,24 +20,26 @@
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         
 
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-pattern/1.2.0/leaflet.pattern.min.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-pattern/1.2.0/leaflet.pattern.min.js"></script>
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
         
     <title>Accueil - DataAbstention</title>
 </head>
 <body>
 
-    <section class="home-danger">
-        <p class="danger"><i class="fa-solid fa-triangle-exclamation"></i> Le site est actuellement en cours de création.</p>
-
-    </section>
-
-
     <section class="container">
+        <img src="img/fav-dataviz.png" alt="" class="logo">
+
         
-        <div>
-            <h1 class="uppercase">la france<br>sans voix</h1>
+        <div class="title">
+            <h1 class="uppercase">Databstention</h1>
+            <h2 class="subtitle-home">Explorer l’abstention pour comprendre et agir</h2>
         </div>
 
 
@@ -47,24 +47,20 @@
             <img src="img/hand-electoralmap.png" alt="" class="hand-image">
         </div>
 
-        <div class="arrow"><i class="fa-solid fa-arrow-right fa-rotate-90"></i></div>
-
-        <a href="mentionslegales.html" class="ml">Accéder à la page des mentions légales</a>
-        <a href="src.html" class="src">Accéder à la page des sources</a> <br><br>
-
-        <p>Site Databstention créé par Justine, Laure et Ramata</p>
+        <a href="#presentation">
+            <span class="scroll-down reveal"></span>
+            <span class="sr-only">Aller au contenu</span>
+        </a>
     </section>
 
 
 
     <section class="definition">
 
-        <div class="img-def">
-            <img src="img/sign.png" alt="">
-        </div>
+        <img src="img/sign.png" alt="" class="img-def">
 
         <div class="txt-def">
-            <h2>Pourquoi l'abstention grimpe aux élections ?</h2>
+            <h3>Pourquoi l'abstention grimpe aux élections ?</h3>
             <p>L’abstention, c’est tout simplement le fait de ne pas aller voter, même quand on est inscrit sur les listes électorales. Pour les élections législatives en France, ce phénomène n’a cessé de grandir depuis les années 1960. <br><br><br>
                 Quelles sont les causes principales ?</p>
             
@@ -83,14 +79,15 @@
 
 
     <section class="electionrate">
-        <h2>Évolution du taux d'abstention des francais</h2>
-        <canvas id="evolution-abstention" width="700" height="400"></canvas>
+        <h3>Évolution du taux d'abstention des francais</h3>
+        <canvas id="evolution-abstention" width="800" height="500" class="canvas"></canvas>
+        <p class="src-map">Source:&nbsp;<a href="https://fr.statista.com/statistiques/714497/taux-abstention-france-legislatives-1er-tour/">Statista</a></p>
 
     </section> 
 
     <section class="regionalrates">
 
-        <h2>Analyse régionale et départementale par année</h2>
+        <h3>Analyse régionale et départementale par année</h3>
 
         <div class="controls">
             <div class="localisation">
@@ -159,14 +156,40 @@
     
     <section class="today">
         <img src="img/fists.png" alt="" class="fists">
+
         <div class="txt-today">
-            <h2>Et aujourd'hui ?</h2>
+            <h3>Et aujourd'hui ?</h3>
             <p>La victoire du Rassemblement National aux élections européennes de 2024 a été un tournant significatif, illustrant la poussée de l'extrême droite en France et une division croissante au sein de l'électorat. Ce résultat a accentué le sentiment de déconnexion des électeurs avec les partis traditionnels, incitant Emmanuel Macron à prendre une mesure exceptionnelle : la dissolution de l’Assemblée nationale. Cette décision est une réponse à la crise politique, cherchant à redonner une légitimité démocratique en permettant aux Français de se prononcer à nouveau sur leurs représentants. Cette action est aussi perçue comme un moyen de restaurer un équilibre politique et de renouveler les mandats à un moment de tensions intenses. <br><br>Néanmoins, cette démarche est loin d’être sans risques. En convoquant de nouvelles élections législatives, Macron pourrait renforcer l'opposition, ou pire, déboucher sur une situation de cohabitation, comme cela s'est produit après la dissolution de 1997 sous Jacques Chirac. En effet, cette stratégie pourrait aggraver la fragmentation politique déjà présente, où la montée de l’extrême droite et le déclin des partis classiques rendent le climat incertain. Cette dissolution met en lumière les enjeux actuels des institutions françaises, en particulier la défiance croissante envers les partis traditionnels et une possible reconfiguration du paysage politique. L'issue de ces élections pourrait marquer un nouveau rééquilibrage des forces, avec une réaffirmation ou une remise en question du pouvoir en place .</p>
         </div>
+        
         <img src="img/loudspeaker.png" alt="" class="loudspeaker">
     </section>
     
-    <footer></footer>
+
+    <footer>
+        <div class="contact-footer">
+            <div class="contact">
+                <a href="https://www.linkedin.com/in/justinethebault/"><i class="fa-brands fa-linkedin"></i><span class="sr-only">Accéder au profil linkedin de Justine Thebault</span></a>
+                <p>Justine THEBAULT</p>
+            </div>
+            <div class="contact">
+                <a href="https://www.linkedin.com/in/justinethebault/"><i class="fa-brands fa-linkedin"></i><span class="sr-only">Accéder au profil linkedin de Justine Thebault</span></a>
+                <p>Justine THEBAULT</p>
+            </div>
+            <div class="contact">
+                <a href="https://www.linkedin.com/in/justinethebault/"><i class="fa-brands fa-linkedin"></i><span class="sr-only">Accéder au profil linkedin de Justine Thebault</span></a>
+                <p>Justine THEBAULT</p>
+            </div>
+        </div>
+
+        <ul>
+            <li><a href="mentionslegales.html">Mentions légales  <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a href="src.html">Sources  <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+
+        <p class="copyright">&copy; 2024 Databstention. Tous droits réservés.</p>
+
+    </footer>
 
 
 

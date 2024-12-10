@@ -9,11 +9,11 @@
 }
 
 
-.regionalrates h2 {
+.regionalrates h3 {
     font-size: 2rem;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 10px;
 }
 
@@ -27,7 +27,6 @@
     align-items: center;
     margin-bottom: 20px;
 }
-
 
 
 .controls button {
@@ -168,4 +167,5 @@ details {
 
 .nb{
     color: var(--text-color);
+    font-size: 1.2rem;
 }
