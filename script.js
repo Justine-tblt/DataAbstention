@@ -43,7 +43,6 @@ fetch('data.json')
         }]
       },
       options: {
-        responsive: true,
         plugins: {
           legend: {
             position: 'bottom',
@@ -97,4 +96,12 @@ fetch('data.json')
   })
 
 
-
+//Afficher les remarques de la carte interactive
+  document.getElementById('comments-button').addEventListener('click', function() {
+    const comments = document.getElementById('comments');
+    if (comments.style.display === 'none' || comments.style.display === '') {
+        comments.style.display = 'flex';
+    } else {
+        comments.style.display = 'none';
+    }
+});

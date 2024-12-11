@@ -24,16 +24,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-pattern/1.2.0/leaflet.pattern.min.js"></script>
 
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
         
     <title>Accueil - DataAbstention</title>
 </head>
 <body>
 
-    <section class="container" tabindex="0">
+    <section class="container">
+        <a href="#definition" class="skip-link">Aller au contenu</a>
         <img src="img/fav-dataviz.png" alt="" class="logo">
 
         
@@ -55,22 +56,24 @@
 
 
 
-    <section class="definition" id="definition" tabindex="0">
+    <section class="definition" id="definition">
 
         <img src="img/sign.png" alt="" class="img-def">
 
         <div class="txt-def">
-            <h3>Pourquoi l'abstention augmente-t-elle aux élections législatives ?</h3>
-            <p>L’abstention, c’est tout simplement le fait de ne pas aller voter, même quand on est inscrit sur les listes électorales. Pour les élections législatives en France, ce phénomène n’a cessé de grandir depuis les années 1960. <br><br><br>
-                Quelles sont les causes principales ?</p>
+            <h3>Pourquoi l'abstention augmente-t-elle aux&nbsp;élections législatives ?</h3>
+            <p>L’abstention, c’est tout simplement le fait de ne pas aller voter, même quand on est inscrit sur les listes électorales. Pour les élections législatives en France, ce phénomène n’a cessé de grandir depuis les années 1960.</p>
             
+            <h4>Quelles sont les causes principales ?</h4>
             <ol>
-                <li>Vous pensez que votre vote ne changera rien</li>
-                <li>Aucune liste ne correspond à vos attentes</li>
-                <li>La politique ne vous intéresse pas</li>
+                <li>Une partie de la population exprime une forme de désaffection pour la politique, qu’elle juge complexe, éloignée ou inefficace. Cette attitude peut s’inscrire dans un phénomène plus large de crise de la représentation (perception que les élus ne défendent pas réellement les intérêts des citoyens).</li>
+
+                <li>Beaucoup d’électeurs ne trouvent pas de programme ou de candidat correspondant à leurs aspirations. Ce sentiment d’offre politique inadaptée renforce l’idée que leur vote serait sans impact concret.</li>
+                
+                <li>Les campagnes législatives, souvent axées sur des enjeux nationaux et techniques, peinent à répondre aux préoccupations quotidiennes des citoyens, renforçant un sentiment de déconnexion entre la sphère politique et le terrain.</li>
             </ol>
 
-            <p>La campagne électorale, souvent éloignée des préoccupations quotidiennes, n’aide pas non plus. En d’autres termes, pour une partie de la population, voter paraît tout simplement inutile​</p>
+            <p>La campagne électorale, souvent éloignée des préoccupations quotidiennes, n’aide pas non plus. En d’autres termes, pour une partie de la population, voter paraît tout simplement inutile.​</p>
         </div>
 
     </section>
@@ -84,10 +87,12 @@
         <div class="evolution-data">
             <div>
                 <canvas id="evolution-abstention" width="900" height="600" class="canvas"></canvas>
-            </div>
+                
+        <p class="src-map">Source:&nbsp;<a href="https://fr.statista.com/statistiques/714497/taux-abstention-france-legislatives-1er-tour/">Statista</a></p>
+        </div>
             <div class="tab">
                 <table id="table-abstention">
-                    <caption>Tableau de l'évolution du taux d'abstention des francais</caption>
+                    <caption>Taux d'abstention au 1er tour des élections législatives françaises 1958-2022</caption>
                     <tr>
                       <th>Année</th>
                       <th>Taux d'abstention (%)</th>
@@ -97,7 +102,6 @@
         </div>
 
 
-        <p class="src-map">Source:&nbsp;<a href="https://fr.statista.com/statistiques/714497/taux-abstention-france-legislatives-1er-tour/">Statista</a></p>
 
    </section> 
 
@@ -124,7 +128,7 @@
         <img src="img/fists.png" alt="" class="fists">
    </section>
 
-    <section class="regionalrates" tabindex="0">
+    <section class="regionalrates">
 
         <h3>Analyse régionale et départementale par année</h3>
 
@@ -185,11 +189,19 @@
         
     <div class="other-legend">
         <p class="src-map">Source:&nbsp;<a href="https://unehistoireduconflitpolitique.fr/telecharger.html">Une Histoire du Conflit Politique</a></p>
-        <p class="nb"><span class="highlight">Remarque:</span> pour observer plus clairement l'évolution du taux, sélectionnez la première année disponible et utilisez la flèche vers le bas <i class="fa-solid fa-circle-arrow-down"></i></p>
+        <button id="comments-button" class="comments-btn"><span class="sr-only">Afficher les remarques</span><i class="fa-solid fa-lightbulb"></i></button>
     </div>
 
 
 
+    <div class="comments" id="comments">
+        <h4 class="nb">Remarques:</h4>
+
+        <ul>
+            <li>Pour observer plus clairement l'évolution du taux, sélectionnez la première année disponible et utilisez la flèche vers le bas <i class="fa-solid fa-circle-arrow-down"></i></li>
+            <li>Pour garantir l'accessibilité de cette carte aux personnes atteintes de troubles visuels, tels que le daltonisme, les couleurs utilisées ne constituent pas la seule source d'information. En sélectionnant chaque département ou région, le taux exact d'abstention aux élections législatives s'affiche, permettant un accès précis et équitable aux données.</li>
+        </ul>
+    </div>
 
     </section>
 
@@ -243,7 +255,7 @@
         </details>
     </section>
 
-    <footer>
+    <footer id="footer">
             <p>Site réalisé par <a href="https://www.linkedin.com/in/justinethebault/">Justine Thebault</a>, <a href="">Ramata Wagne</a> et <a href="">Laure Missie</a></p>
 
             <ul>
@@ -256,6 +268,11 @@
     </footer>
 
 
+     
+    <!-- Bouton pour remonter la page--->
+    <div class="home">
+        <a href="#top"><span class="sr-only">Accueil</span><i class="fa-solid fa-house"></i></a>
+    </div>
 
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
