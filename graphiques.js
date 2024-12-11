@@ -304,14 +304,14 @@ async function afficherCarte(annee, mode) {
                 fillColor: getColor(taux),
                 fillOpacity: 0.7,
                 weight: 1,
-                color: '#333'
+                color: '#000000'
             };
         },
         onEachFeature: (feature, layer) => {
             const key = mode === "regions" ? feature.properties.nom : feature.properties.code;
-            const taux = tauxAbstention[key]?.toFixed(2) || "Non disponible";
+            const taux = tauxAbstention[key]?.toFixed(2) || "";
             const name = mode === "regions" ? feature.properties.nom : departements[key];
-            layer.bindPopup(`<strong>${name}</strong><br>Taux d'abstention en ${annee} : ${taux}%`);
+            layer.bindPopup(`<strong>${name}</strong><br>Le taux d'abstention en ${annee} était de ${taux}%`);
         }
     }).addTo(map);
 }
@@ -343,3 +343,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

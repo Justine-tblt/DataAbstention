@@ -112,25 +112,25 @@
 .red { background-color: #e23333; }
 
 
-details {
+.details-map {
     padding: 8px;
     max-width: 300px;
     background-color: #fff;
     margin-bottom: 20px;
   }
   
-  summary {
+.summary-map {
     font-weight: bold;
     padding: 8px;
     cursor: pointer;
 
   }
   
-  details[open] {
+  .details-map[open] {
     padding: 0.5em;
   }
   
-  details[open] summary {
+  .details-map[open] .summary-map {
     border-bottom: 1px solid #aaa;
     margin-bottom: 0.5em;
   }

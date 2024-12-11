@@ -78,24 +78,26 @@ body {
 
 
 .container {
-    background-image: url(img/img-noise-2000x200-red.png);
+    background-image: url(img/background.png);
     position: relative; 
     overflow: hidden;
-    height: 800px;
+    height: 100vh;
     max-width: 2000px;
     padding: 20px 0 0 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container h1 {
     font-size: 8rem;
     font-weight: bold;
-    margin-bottom: 0;
 }
 
 .subtitle-home{
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-top: 0;
     font-weight: normal;
+    text-align: center;
 }
 
 
@@ -114,9 +116,8 @@ body {
 
 
 .definition {
-    height: 70vh;
+    height: 90vh;
     background-image: url(img/img-noise-2000x728-white.png);
-    border: var(--text-color) solid 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -222,7 +223,6 @@ body {
 .regionalrates {
     background-image: url(img/noise2000x728.png);
     padding: 30px;
-   
 }
 
 .frenchmap{
@@ -234,12 +234,12 @@ body {
 .today {
     height: fit-content;
     background-image: url(img/img-noise-2000x728-white.png);
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between; 
-    gap: 20px;
     padding-top: 20px;
+}
+
+.container-today{
+    display: flex;
+    justify-content: center;
 }
 
 .txt-today {
@@ -257,7 +257,7 @@ body {
 }
 
 
-.txt-today h3 {
+.today h3 {
     font-size: 2rem;
     text-transform: uppercase;
     text-align: center;
@@ -265,9 +265,9 @@ body {
     margin-top: 10px;
 }
 
+
 .fists{
     height: 150px;
-    transform: rotate(90deg);
     margin: 0;
     align-self: center;
     display: flex;
@@ -318,7 +318,7 @@ h2{
 
 footer {
     background-color: black;
-    height: 28vh;
+    height: fit-content;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -330,44 +330,36 @@ footer {
     margin: 0;
 }
 
+
+footer p, footer a{
+    color: var(--background-white);
+}
+
 footer ul{
     display: flex;
-    flex-direction: row;
-    list-style-type: none;
     gap: 50px;
-    justify-content: center;
-    margin-top: 30px;
+    padding: 0;
+    margin-bottom: 30px;
 }
 
-.contact-footer{
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    padding: 20px;
-    max-width: 700px;
-    margin-inline: auto;
-}
-
-
-.contact{
+footer p a:nth-of-type(1) {
     color: var(--background-white);
-    text-align: center;
+    background-color: var(--background-blue); 
+    text-transform: uppercase;
+    padding: 5px;
 }
 
-.contact p{
-    margin-bottom: 0;
-}
+footer p a:nth-of-type(2) {
+    color: var(--text-color);
+    background-color: var(--background-white); 
+    text-transform: uppercase;
+    padding: 5px;}
 
-.contact i {
-    font-size: 2.5rem;
+footer p a:nth-of-type(3) {
     color: var(--background-white);
-    transition: color 0.3s ease;
-}
-
-
-.contact i:hover {
-    font-size: 2.5rem;
-    color: var(--background-blue);
+    background-color: var(--background-red); 
+    text-transform: uppercase;
+    padding: 5px;
 }
 
 
@@ -378,6 +370,9 @@ footer ul a,
     justify-content: center;
 }
 
+footer ul a:hover{
+    font-weight: bold;
+}
 #map {
     height: 600px;
     max-width:1000px;
@@ -540,3 +535,75 @@ table {
     color: var(--background-blue);
     font-weight: bold;
   }
+
+
+  
+.sociology {
+    height: fit-content;
+    background-image: url(img/img-noise-2000x728-white.png);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+
+.txt-sociology{
+    max-width: 900px;
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-inline: auto;
+}
+
+.txt-sociology p{
+    margin: 0;
+    text-indent: 20px;
+    font-size: 1.2rem;
+}
+
+.txt-sociology h4{
+    margin-bottom: 0;
+}
+
+
+
+.sociology h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+
+.act{
+    background-image: url(img/img-noise-2000x200-red.png);
+    height: 50vh;
+}
+
+.details-act {
+    padding: 8px;
+    max-width: 900px;
+    background-color: #fff;
+    margin-bottom: 20px;
+  }
+  
+.summary-act {
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
+
+  }
+  
+  .details-act[open] {
+    padding: 0.5em;
+  }
+  
+  .details-act[open] .summary-act {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 0.5em;
+  }
+  

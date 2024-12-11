@@ -6,14 +6,14 @@ fetch('data.json')
 
     const table = document.getElementById('table-abstention');
 
-    // Génération des lignes du tableau
+    // tableau
     data.donnees.forEach(item => {
       const row = document.createElement('tr');
       const annee = document.createElement('td');
       const taux = document.createElement('td');
 
       annee.textContent = item.annee;
-      taux.textContent = item.taux_abstention + item.unite;
+      taux.textContent = item.taux_abstention;
 
       row.appendChild(annee);
       row.appendChild(taux);
@@ -30,7 +30,7 @@ fetch('data.json')
       data: {
         labels: years, 
         datasets: [{
-          label: 'Taux d\'abstention (%)',
+          label: 'Taux d\'abstention(%)',
           data: values,
           fill: true, 
           borderColor: '#3A5BC7', 
