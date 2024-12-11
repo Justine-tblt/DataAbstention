@@ -60,14 +60,7 @@
 body {
     margin: 0;
     padding: 0;
-    scroll-snap-type: y mandatory; 
-    overflow-y: scroll; 
     font-family: "Roboto";
-}
-
-section {
-  height: 100vh; 
-  outline: none; 
 }
 
 .title{
