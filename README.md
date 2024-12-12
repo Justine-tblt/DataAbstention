@@ -7,3 +7,6 @@ Ce projet est une page web qui permet de visualiser des données à propos d’u
 - Accessibilité
 - Esthétique
 - Respect de la législation relative aux données
+
+
+Lien vers le rapport d'audit accessibilité: https://ara.numerique.gouv.fr/rapports/FlAyk_IPQ88HYxnhe65cz  
