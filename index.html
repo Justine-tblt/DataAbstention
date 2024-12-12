@@ -4,45 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="graphiques.css">
+    <link rel="shortcut icon" type="image/png" href="./img/fav-dataviz.png">
 
-    
     <!--FONT AWESOME-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <link rel="shortcut icon" type="image/png" href="./img/fav-dataviz.png">
-
-
-        <!-- LEAFLET -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-        
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-pattern/1.2.0/leaflet.pattern.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-pattern/1.2.0/leaflet.pattern.min.js"></script>
-
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
-        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- LEAFLET -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-pattern/1.2.0/leaflet.pattern.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-pattern/1.2.0/leaflet.pattern.min.js"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+    
     <title>Databstention</title>
 </head>
+
 <body>
 
-    <section class="container">
+    <!--PAGE D'ACCUEIL-->
+    <section class="home-page">
         <a href="#definition" class="skip-link">Aller au contenu</a>
         <img src="img/fav-dataviz.png" alt="" class="logo reveal reveal-bottom">
 
         
         <div class="title reveal reveal-bottom">
-            <h1 class="uppercase">Databstention</h1>
+            <h1>Databstention</h1>
             <h2 class="subtitle-home">Explorer l’abstention aux élections législatives en France Métropolitaine : <br>comprendre et agir</h2>
         </div>
-
 
         <div class="img-hand">
             <img src="img/hand-electoralmap.png" alt="" class="hand-image reveal reveal-right">
@@ -55,9 +45,8 @@
     </section>
 
 
-
+    <!--DEFINITION ET CAUSES-->
     <section class="definition" id="definition">
-
         <img src="img/sign.png" alt="" class="img-def reveal reveal-left">
 
         <div class="txt-def reveal reveal-bottom">
@@ -75,21 +64,21 @@
 
             <p>La campagne électorale, souvent éloignée des préoccupations quotidiennes, n’aide pas non plus. En d’autres termes, pour une partie de la population, voter paraît tout simplement inutile.​</p>
         </div>
-
     </section>
 
 
-
-
+    <!--GRAPHIQUE ÉVOLUTION DU TAUX-->
     <section class="electionrate">
         <h3 class="reveal reveal-bottom">L'évolution du taux d'abstention en France métropolitaine</h3>
 
         <div class="evolution-data reveal reveal-bottom">
+            <!-- Graphique et source -->
             <div>
                 <canvas id="evolution-abstention" width="900" height="600" class="canvas"></canvas>
-                
-        <p class="src-map reveal reveal-bottom">Source:&nbsp;<a href="https://fr.statista.com/statistiques/714497/taux-abstention-france-legislatives-1er-tour/">Statista</a></p>
-        </div>
+                <p class="src-map reveal reveal-bottom">Source:&nbsp;<a href="https://fr.statista.com/statistiques/714497/taux-abstention-france-legislatives-1er-tour/">Statista</a></p>
+            </div>
+
+            <!-- Tableau des données -->
             <div class="tab reveal reveal-bottom">
                 <table id="table-abstention">
                     <caption>Taux d'abstention au 1er tour des élections législatives françaises 1958-2022</caption>
@@ -100,11 +89,10 @@
                 </table>
             </div>
         </div>
-
-
-
    </section> 
 
+
+    <!--FACTEURS DE L'ABSTENTION-->
    <section class="sociology">
         <div class="txt-sociology reveal reveal-bottom">
             <h3>Facteurs sociologiques et démographiques de l'abstention</h3>
@@ -128,25 +116,26 @@
         <img src="img/fists.png" alt="" class="fists reveal reveal-bottom">
    </section>
 
-    <section class="regionalrates">
 
+
+    <!--ANALYSE CARTOGRAPHIQUE-->
+    <section class="regionalrates">
         <h3 class="reveal reveal-bottom">Analyse régionale et départementale par année</h3>
 
+        <!-- Filtres -->
         <div class="controls reveal reveal-bottom">
             <div class="localisation">
                 <button id="btn-regions" class="active">Afficher par régions</button>
                 <button id="btn-departements">Afficher par départements</button>
             </div>
-
             <div class="year">
-                <label for="yearSelector"><span class="arrow sr-only">Sélectionnez une année</span></label>
-                <select id="yearSelector"></select>
-                <div id="currentYear" class="currentYear"></div>
+                <label for="selectyear"><span class="arrow sr-only">Sélectionnez une année</span></label>
+                <select id="selectyear"></select>
+                <div id="currentyear" class="currentyear"></div>
             </div>
-    
         </div>
         
-        
+        <!-- Carte, légende et questions/réponses -->
         <div class="frenchmap reveal reveal-bottom">
             <div id="map" style="height: 710px"></div>
         
@@ -184,31 +173,26 @@
                     Depuis 2007, le taux d’abstention aux élections législatives n’a cessé de progresser, reflétant un désintérêt croissant des électeurs. L’élection présidentielle, perçue comme l’échéance majeure, occulte les législatives, souvent vues comme secondaires. Le manque de confiance dans les institutions et les élus, ajouté à l’impression que le vote ne change pas les réalités locales ou nationales, nourrit cette tendance. Cette hausse est particulièrement marquée dans les régions où la précarité domine, tandis que les zones à forte tradition électorale résistent mieux à ce phénomène.
                 </details>
             </div>
-            
-    </div>
+        </div>
         
-    <div class="other-legend reveal reveal-bottom">
-        <p class="src-map">Source:&nbsp;<a href="https://unehistoireduconflitpolitique.fr/telecharger.html">Une Histoire du Conflit Politique</a></p>
-        <button id="comments-button" class="comments-btn"><span class="sr-only">Afficher les remarques</span><i class="fa-solid fa-lightbulb"></i></button>
-    </div>
+        <!-- Source -->
+        <div class="other-legend reveal reveal-bottom">
+            <p class="src-map">Source:&nbsp;<a href="https://unehistoireduconflitpolitique.fr/telecharger.html">Une Histoire du Conflit Politique</a></p>
+            <button id="comments-button" class="comments-btn"><span class="sr-only">Afficher les remarques</span><i class="fa-solid fa-lightbulb"></i></button>
+        </div>
 
-
-
-    <div class="comments" id="comments">
-        <h4 class="nb">Remarques:</h4>
-
-        <ul>
-            <li>Pour observer plus clairement l'évolution du taux, sélectionnez la première année disponible et utilisez la flèche vers le bas <i class="fa-solid fa-circle-arrow-down"></i></li>
-            <li>Pour garantir l'accessibilité de cette carte aux personnes atteintes de troubles visuels, tels que le daltonisme, les couleurs utilisées ne constituent pas la seule source d'information. En sélectionnant chaque département ou région, le taux exact d'abstention aux élections législatives s'affiche, permettant un accès précis et équitable aux données.</li>
-        </ul>
-    </div>
-
+        <!-- Remarques -->
+        <div class="comments" id="comments">
+            <h4 class="nb">Remarques:</h4>
+            <ul>
+                <li>Pour observer plus clairement l'évolution du taux, sélectionnez la première année disponible et utilisez la flèche vers le bas <i class="fa-solid fa-circle-arrow-down"></i></li>
+                <li>Pour garantir l'accessibilité de cette carte aux personnes atteintes de troubles visuels, tels que le daltonisme, les couleurs utilisées ne constituent pas la seule source d'information. En sélectionnant chaque département ou région, le taux exact d'abstention aux élections législatives s'affiche.</li>
+            </ul>
+        </div>
     </section>
 
 
-
-
-    
+    <!--LA SITUATION ACTUELLE-->
     <section class="today">
         <h3 class="reveal reveal-bottom">Où en sommes-nous aujourd'hui ?</h3>
 
@@ -221,20 +205,20 @@
                 <p>Cependant, la démarche d'Emmanuel Macron comportait des risques importants. Ce retour de l'engagement électoral a renforcé l’opposition, notamment le <span class="imp-terms">Rassemblement National</span>, qui a marqué une avancée notable. Loin de favoriser la stabilité, la dissolution a ouvert la voie à une <span class="imp-terms">concentration de pouvoir dans les partis extrêmes</span>, contribuant à une <span class="imp-terms">fragmentation politique</span> accrue. Le scénario de cohabitation, similaire à 1997 sous <a href="https://fr.wikipedia.org/wiki/Jacques_Chirac">Jacques Chirac</a>, reste un risque, mais il est désormais accompagné de la montée en puissance de forces politiques autres que celles traditionnelles.</p>
     
                 <p>La dissolution met en lumière les enjeux cruciaux des institutions françaises actuelles: la <span class="imp-terms">méfiance croissante</span> envers les partis traditionnels et la possibilité d’une reconfiguration du paysage politique. Le taux d’abstention, bien qu’en baisse, reste un indicateur de cette défiance persistante. Les élections à venir pourraient donc marquer un nouveau rééquilibrage des forces politiques, soit par une réaffirmation du pouvoir en place, soit par un renversement de celui-ci.</p>
-    
             </div>
-            
             <img src="img/loudspeaker.png" alt="" class="loudspeaker reveal reveal-bottom">
         </div>
     </section>
     
-
+    <!--FAQ AGIR-->
     <section class="act">
         <h3 class="reveal reveal-bottom">Ensemble, faisons la différence</h3>
+
         <details open class="details-act reveal reveal-bottom">
             <summary class="summary-act">Pourquoi devrais-je m'engager ?</summary>
             L'abstention prive les citoyens de l’opportunité de faire entendre leur voix. Agir, c’est participer à la construction d’un avenir meilleur pour tous. Chaque action compte, que ce soit en votant, en s’informant ou en agissant au quotidien.
         </details>
+
         <details class="details-act reveal reveal-bottom">
             <summary class="summary-act">Comment puis-je agir concrètement ?</summary>
             <ul>
@@ -245,28 +229,31 @@
                 <li><b>Faire entendre ma voix:</b> signez des pétitions, écrivez à vos élus.</li>
             </ul>
         </details>
+
         <details class="details-act reveal reveal-bottom">
             <summary class="summary-act">Pourquoi l’engagement est-il important ?</summary>
             Chaque action individuelle peut avoir un impact collectif. En vous engageant, vous contribuez à des changements positifs dans votre communauté et à des décisions qui affectent votre vie et celle des autres.
         </details>
+
         <details class="details-act reveal reveal-bottom">
             <summary class="summary-act">Comment commencer ?</summary>
             Il suffit de commencer petit : lisez, discutez, votez. De petites actions quotidiennes peuvent conduire à un grand changement. Nous vous fournissons les outils nécessaires pour agir à votre échelle.
         </details>
     </section>
 
+
+    <!--FOOTER-->
     <footer id="footer">
             <p class="reveal reveal-bottom">Site réalisé par <a href="https://www.linkedin.com/in/justinethebault/" aria-label="Accéder au compte Linkedin de Justine Thebault">Justine Thebault</a>, <a href="https://www.linkedin.com/in/ramata-wagne-769551261/" aria-label="Accéder au compte Linkedin de Ramata Wagne">Ramata Wagne</a> et <a href="https://www.linkedin.com/in/laure-missie/" aria-label="Accéder au compte Linkedin de Laure Missie">Laure Missie</a></p>
 
             <ul class="reveal reveal-bottom">
                 <li><a href="mentionslegales.html">Mentions légales&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
-                <li><a href="src.html">Sources&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                <li><a href="sources.html">Sources&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
             </ul>
     
             <p class="copyright reveal reveal-bottom">&copy; 2024 Databstention. Tous droits réservés.</p>
 
     </footer>
-
 
      
     <!-- Bouton pour remonter la page--->
@@ -276,12 +263,10 @@
 
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="graphiques.js"></script>
+    <script src="map.js"></script>
+    <script src="graphic.js"></script>
     <script src="script.js"></script>
 
-
-
-    
 </body>
 </html>
 

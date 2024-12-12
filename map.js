@@ -1,4 +1,5 @@
-//départements
+// ANALYSE CARTOGRAPHIQUE
+
 const departements = {
     "01": "Ain",
     "02": "Aisne",
@@ -193,59 +194,59 @@ const departementsRegions = {
     "95": "Île-de-France",
 };
 
-const map = L.map('map', {
+
+// initialisation de la carte
+const map = L.map("map", {
     center: [46.9, 2],
     zoom: 6,
     minZoom: 6,
 });
 
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap contributors"
 }).addTo(map);
 
-
 let currentMode = "regions";
-let currentYear = "2022";
+let currentyear = "2022";
 
-document.getElementById('currentYear').textContent = currentYear;
+document.getElementById("currentyear").textContent = currentyear;
 
-// Fonction pour charger les données depuis le fichier JSON
 async function chargerDonnees() {
-    const response = await fetch('data-map.json');
+    const response = await fetch("data-map.json");
     return response.json();
 }
 
+
+// extraire les années
 async function annees() {
     const donnees = await chargerDonnees();
 
-    // Extraire les années et filtrer celles entre 1958 et 2022
+    // filtrer celles entre 1958 et 2022
     const anneesDisponibles = [...new Set(donnees.map(d => d.source.match(/\d+/)[0]))]
         .filter(annee => annee >= 1958 && annee <= 2022)
         .sort();
-    const yearSelector = document.getElementById('yearSelector');
+    const selectyear = document.getElementById("selectyear");
 
     anneesDisponibles.forEach(annee => {
-        const option = document.createElement('option');
+        const option = document.createElement("option");
         option.value = annee;
         option.textContent = annee;
-        yearSelector.appendChild(option);
+        selectyear.appendChild(option);
     });
 
-    yearSelector.addEventListener('change', (event) => {
-        currentYear = event.target.value;
-        document.getElementById('currentYear').textContent = currentYear;
-        afficherCarte(currentYear, currentMode);
+    selectyear.addEventListener("change", (event) => {
+        currentyear = event.target.value;
+        document.getElementById("currentyear").textContent = currentyear;
+        afficherCarte(currentyear, currentMode);
     });
 
-    currentYear = anneesDisponibles[anneesDisponibles.length - 1];
-    document.getElementById('currentYear').textContent = currentYear;
-    yearSelector.value = currentYear;
-
-
+    currentyear = anneesDisponibles[anneesDisponibles.length - 1];
+    document.getElementById("currentyear").textContent = currentyear;
+    selectyear.value = currentyear;
 }
 
-// Fonction pour calculer l'abstention par département ou région
+
+// calcul du taux d"abstention par département / région
 function calculerAbstention(donnees, annee, mode) {
     const data = {};
     donnees.filter(d => d.source.includes(annee)).forEach(({ dep, inscrits, votants }) => {
@@ -261,22 +262,26 @@ function calculerAbstention(donnees, annee, mode) {
     }, {});
 }
 
-// Fonction pour déterminer la couleur en fonction du taux d'abstention
+
+// déterminer la couleur en fonction du taux d"abstention
 function colorAbstention(taux) {
-    if (taux < 20) return '#297cf8';
-    if (taux < 30) return '#47bd47';
-    if (taux < 40) return '#fadf72';
-    if (taux < 50) return '#ee9235';
-    return '#e23333';
+    if (taux < 20) return "#297cf8";
+    if (taux < 30) return "#47bd47";
+    if (taux < 40) return "#fadf72";
+    if (taux < 50) return "#ee9235";
+    return "#e23333";
 }
 
 
+// affiche la carte avec les données filtrées par année et mode (régions ou départements)
 async function afficherCarte(annee, mode) {
     const donnees = await chargerDonnees();
     const tauxAbstention = calculerAbstention(donnees, annee, mode);
+    
+    // données géographiques de GRÉGOIRE DAVID sur GitHub
     const geojsonUrl = mode === "regions" ?
-        'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions-version-simplifiee.geojson' :
-        'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson';
+        "https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions-version-simplifiee.geojson" :
+        "https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson";
 
     const response = await fetch(geojsonUrl);
     const geojsonData = await response.json();
@@ -293,32 +298,29 @@ async function afficherCarte(annee, mode) {
                 fillColor: colorAbstention(taux),
                 fillOpacity: 0.7,
                 weight: 1,
-                color: '#000000'
+                color: "#000000"
             };
         },
         onEachFeature: (feature, layer) => {
             const key = mode === "regions" ? feature.properties.nom : feature.properties.code;
             const taux = tauxAbstention[key]?.toFixed(2) || "";
             const name = mode === "regions" ? feature.properties.nom : departements[key];
-            layer.bindPopup(`<strong>${name}</strong><br>Le taux d'abstention en ${annee} était de ${taux}%`);
+            layer.bindPopup(`<strong>${name}</strong><br>Le taux d"abstention en ${annee} était de ${taux}%`);
         }
     }).addTo(map);
 }
 
 
-document.getElementById('btn-regions').addEventListener('click', () => {
+// boutons pour choisir le mode
+document.getElementById("btn-regions").addEventListener("click", () => {
     currentMode = "regions";
-    afficherCarte(currentYear, currentMode);
+    afficherCarte(currentyear, currentMode);
 });
 
-document.getElementById('btn-departements').addEventListener('click', () => {
+document.getElementById("btn-departements").addEventListener("click", () => {
     currentMode = "departements";
-    afficherCarte(currentYear, currentMode);
+    afficherCarte(currentyear, currentMode);
 });
-
-annees();
-afficherCarte(currentYear, currentMode);
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".controls button");
@@ -329,6 +331,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+
+annees();
+afficherCarte(currentyear, currentMode);
+
 
 
 
