@@ -37,7 +37,7 @@ fetch('data.json')
           backgroundColor: 'rgb(209, 52, 21, 0.2)',
           borderWidth: 3, 
           pointBackgroundColor: '#fdf1f1',
-          pointRadius: 5,
+          pointRadius: 8,
           pointHoverRadius:7, 
           pointHoverBackgroundColor: '#D13415' 
         }]
@@ -59,6 +59,14 @@ fetch('data.json')
             font: {
               size: 18
             }
+          }
+        },
+        onHover: (event, chartElement) => {
+          const targetCanvas = event.native.target;
+          if (chartElement.length) {
+            targetCanvas.style.cursor = 'pointer';
+          } else {
+            targetCanvas.style.cursor = 'default';
           }
         },
         scales: {
@@ -104,4 +112,34 @@ fetch('data.json')
     } else {
         comments.style.display = 'none';
     }
+});
+
+
+// APPARITION AU DÉFILEMENT
+const ratio = .1;
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: .1
+};
+
+const handleIntersect = function(entries, observer) {
+    entries.forEach(function(entry) {
+        if (entry.intersectionRatio > ratio) {
+            // Détermine la classe à appliquer dynamiquement
+            if (entry.target.classList.contains('reveal-left')) {
+                entry.target.classList.add('reveal-left-visible');
+            } else if (entry.target.classList.contains('reveal-right')) {
+                entry.target.classList.add('reveal-right-visible');
+            } else if (entry.target.classList.contains('reveal-bottom')) {
+                entry.target.classList.add('reveal-bottom-visible');
+            }
+            observer.unobserve(entry.target); // Arrête d'observer
+        }
+    });
+};
+
+const observer = new IntersectionObserver(handleIntersect, options);
+document.querySelectorAll('.reveal').forEach(function(r) {
+    observer.observe(r);
 });

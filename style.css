@@ -33,6 +33,15 @@
 }
 
 
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
 /*ACCESSIBILITÉ*/
 
 .skip-link {
@@ -167,7 +176,6 @@ body {
     width: 500px;
     position: absolute;
     top: 20px;
-    transform: rotate(-90deg);
     right: -35px;
 }
 
@@ -175,10 +183,6 @@ body {
     .container{
         padding: 0;
         height: 70vh;
-    }
-    .hand-image {
-        top: 300px;
-        width: 350px;
     }
 
     .title{
@@ -188,24 +192,32 @@ body {
     .container h1 {
         font-size: 6rem;
     }
-    .evolution-data {
-        flex-direction: column;
-    }
-    .tab{
-        max-width: fit-content;
-        margin-inline: auto;
-    }
 }
 
 
 @media screen and (max-width: 1530px) {
-    .img-def {
-        display: none;
-    }
+   
     .definition {
         height: 100vh;
     }
+    .img-def {
+        width: 400px;
+    }
+    
+    .evolution-data {
+        flex-direction: column;
+        align-items: center;
+    }
+    .tab{
+        max-width: fit-content;
+        margin-left: 0;
+    }
 
+    
+    .hand-image {
+        top: 250px;
+        width: 350px;
+    }
 }
 .definition {
     height: 90vh;
@@ -214,16 +226,18 @@ body {
     justify-content: space-around;
     align-items: center;
     gap: 50px;
+    padding-right: 15px;
 }
 
 .img-def {
     max-width: 600px;
     position: absolute;
-    left: 10px;
+    left: 0;
 }
 
 .txt-def {
     max-width: 800px;
+    margin-left: 400px;
 }
 
 .txt-def h3 {
@@ -484,7 +498,6 @@ footer ul a:hover {
 
 
 canvas {
-    margin-right: 50px;
     background-color: white;
     padding: 10px;
 
@@ -607,6 +620,7 @@ th {
     background-color: var(--background-white);
     padding: 25px;
     padding-top: 0;
+    margin-left: 10px;
 }
 
 caption {
@@ -622,7 +636,6 @@ caption {
 .txt-today a {
     color: var(--background-red);
     font-weight: bold;
-    transition: color 0.8 ease-in;
 }
 
 
@@ -717,5 +730,41 @@ caption {
 
 .leaflet-popup-close-button {
     color: black !important;
-    /* Changer la couleur */
+}
+
+.red-highlight{
+    color: var(--background-red);
+    font-weight: bold;
+}
+
+
+/*APPARITION AU DÉFILEMENT*/
+.reveal-left {
+    transform: translateX(-30px);
+    opacity: 0;
+}
+.reveal-left-visible {
+    transform: translateX(0);
+    opacity: 1;
+    transition: 1s cubic-bezier(.5, 0, 0, 1);
+}
+
+.reveal-right {
+    transform: translateX(30px); 
+    opacity: 0;
+}
+.reveal-right-visible {
+    transform: translateX(0); 
+    opacity: 1;
+    transition: 1s cubic-bezier(.5, 0, 0, 1);
+}
+
+.reveal-bottom {
+    transform: translateY(30px); 
+    opacity: 0;
+}
+.reveal-bottom-visible {
+    transform: translateY(0); 
+    opacity: 1;
+    transition: 1s cubic-bezier(.5, 0, 0, 1);
 }

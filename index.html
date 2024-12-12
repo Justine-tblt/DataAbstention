@@ -29,27 +29,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
         
-    <title>Accueil - DataAbstention</title>
+    <title>Databstention</title>
 </head>
 <body>
 
     <section class="container">
         <a href="#definition" class="skip-link">Aller au contenu</a>
-        <img src="img/fav-dataviz.png" alt="" class="logo">
+        <img src="img/fav-dataviz.png" alt="" class="logo reveal reveal-bottom">
 
         
-        <div class="title">
+        <div class="title reveal reveal-bottom">
             <h1 class="uppercase">Databstention</h1>
             <h2 class="subtitle-home">Explorer l’abstention aux élections législatives en France Métropolitaine : <br>comprendre et agir</h2>
         </div>
 
 
         <div class="img-hand">
-            <img src="img/hand-electoralmap.png" alt="" class="hand-image">
+            <img src="img/hand-electoralmap.png" alt="" class="hand-image reveal reveal-right">
         </div>
 
         <a href="#definition">
-            <span class="scroll-down reveal"></span>
+            <span class="scroll-down reveal reveal-bottom"></span>
             <span class="sr-only">Aller au contenu</span>
         </a>
     </section>
@@ -58,9 +58,9 @@
 
     <section class="definition" id="definition">
 
-        <img src="img/sign.png" alt="" class="img-def">
+        <img src="img/sign.png" alt="" class="img-def reveal reveal-left">
 
-        <div class="txt-def">
+        <div class="txt-def reveal reveal-bottom">
             <h3>Pourquoi l'abstention augmente-t-elle aux&nbsp;élections législatives ?</h3>
             <p>L’abstention, c’est tout simplement le fait de ne pas aller voter, même quand on est inscrit sur les listes électorales. Pour les élections législatives en France, ce phénomène n’a cessé de grandir depuis les années 1960.</p>
             
@@ -82,15 +82,15 @@
 
 
     <section class="electionrate">
-        <h3>L'évolution du taux d'abstention en France métropolitaine</h3>
+        <h3 class="reveal reveal-bottom">L'évolution du taux d'abstention en France métropolitaine</h3>
 
-        <div class="evolution-data">
+        <div class="evolution-data reveal reveal-bottom">
             <div>
                 <canvas id="evolution-abstention" width="900" height="600" class="canvas"></canvas>
                 
-        <p class="src-map">Source:&nbsp;<a href="https://fr.statista.com/statistiques/714497/taux-abstention-france-legislatives-1er-tour/">Statista</a></p>
+        <p class="src-map reveal reveal-bottom">Source:&nbsp;<a href="https://fr.statista.com/statistiques/714497/taux-abstention-france-legislatives-1er-tour/">Statista</a></p>
         </div>
-            <div class="tab">
+            <div class="tab reveal reveal-bottom">
                 <table id="table-abstention">
                     <caption>Taux d'abstention au 1er tour des élections législatives françaises 1958-2022</caption>
                     <tr>
@@ -106,33 +106,33 @@
    </section> 
 
    <section class="sociology">
-        <div class="txt-sociology">
+        <div class="txt-sociology reveal reveal-bottom">
             <h3>Facteurs sociologiques et démographiques de l'abstention</h3>
-            <p>L'abstention aux élections législatives ne peut être comprise sans examiner les facteurs sociologiques et démographiques qui influencent le comportement électoral. Ces éléments permettent de mieux cerner les profils des électeurs qui choisissent de ne pas se rendre aux urnes, et d’identifier les mécanismes sous-jacents de ce phénomène.</p>
+            <p>L'abstention aux élections législatives ne peut être comprise sans examiner les facteurs sociologiques et démographiques qui influencent le comportement électoral. Ces éléments permettent de mieux cerner les profils des électeurs qui choisissent de ne pas se rendre aux urnes et d’identifier les mécanismes sous-jacents de ce phénomène.</p>
         
             <h4>L'âge et la participation électorale</h4>
-            <p>Les études montrent une corrélation forte entre l'âge et la participation. Les jeunes adultes, notamment ceux âgés de 18 à 25 ans, sont souvent les plus enclins à s’abstenir. Ce comportement s’explique par une moindre intégration dans le système politique, un sentiment de désillusion ou encore un manque de repères politiques stables. À l'inverse, les électeurs plus âgés tendent à être plus mobilisés, ayant souvent développé une habitude de vote et un sentiment de devoir civique plus prononcé.</p>
+            <p>Les études montrent une corrélation forte entre l'âge et la participation. Les jeunes adultes, notamment ceux âgés de <span class="red-highlight">18 à 25 ans, sont souvent les plus enclins à s’abstenir</span>. Ce comportement s’explique par une moindre intégration dans le système politique, un sentiment de désillusion ou encore un manque de repères politiques stables. À l'inverse, <span class="red-highlight">les électeurs plus âgés tendent à être plus mobilisés</span>, ayant souvent développé une habitude de vote et un sentiment de devoir civique plus prononcé.</p>
         
             <h4>L'impact du niveau d'éducation</h4>
-            <p>Le niveau d'éducation joue également un rôle crucial. Les personnes ayant un diplôme supérieur participent davantage, en raison d'un intérêt souvent plus marqué pour les affaires publiques et une meilleure compréhension des enjeux électoraux. En revanche, les électeurs ayant un faible niveau de qualification sont parfois éloignés du débat politique et peuvent ressentir une forme d’exclusion ou d’impuissance face aux processus institutionnels.</p>
+            <p>Le niveau d'éducation joue également un rôle crucial. <br>Les personnes ayant un <span class="red-highlight">diplôme supérieur participent davantage</span>, en raison d'un intérêt souvent plus marqué pour les affaires publiques et une meilleure compréhension des enjeux électoraux. En revanche, <span class="red-highlight">les électeurs ayant un faible niveau de qualification sont parfois éloignés du débat politique</span> et peuvent ressentir une forme d’exclusion ou d’impuissance face aux processus institutionnels.</p>
 
             <h4>Les catégories socioprofessionnelles et le vote</h4>
-            <p>Les ouvriers et employés, souvent en situation socio-économique précaire, s’abstiennent davantage que les cadres ou professions intellectuelles. Ce phénomène reflète un sentiment d'abandon par des institutions perçues comme éloignées de leurs préoccupations.</p>
+            <p>Les <span class="red-highlight">ouvriers et employés</span>, souvent en situation socio-économique précaire, <span class="red-highlight">s’abstiennent davantage que les cadres ou professions intellectuelles</span>. Ce phénomène reflète un sentiment d'abandon par des institutions perçues comme éloignées de leurs préoccupations.</p>
 
             <h4>Genre et abstention</h4>
-            <p>Les écarts de participation entre hommes et femmes se sont réduits, mais certaines différences subsistent. Les femmes, notamment dans certaines tranches d'âge, participent parfois davantage, influencées par un fort sens du devoir civique.</p>
+            <p>Les écarts de participation entre hommes et femmes se sont réduits, mais certaines différences subsistent. <span class="red-highlight">Les femmes</span>, notamment dans certaines tranches d'âge, <span class="red-highlight">participent parfois davantage</span>, influencées par un fort sens du devoir civique.</p>
 
             <h4>Le désengagement politique</h4>
-            <p>L’abstention traduit aussi un désengagement global vis-à-vis de la politique. De plus en plus de citoyens rejettent les institutions traditionnelles et privilégient d'autres formes d'expression, comme les manifestations ou les pétitions, souvent par manque de confiance dans les élus.</p>
+            <p>L’abstention traduit aussi un désengagement global vis-à-vis de la politique. De plus en plus de citoyens <span class="red-highlight">rejettent les institutions traditionnelles</span> et privilégient d'autres formes d'expression, comme les <span class="red-highlight">manifestations ou les pétitions</span>, souvent par manque de confiance dans les élus.</p>
         </div>
-        <img src="img/fists.png" alt="" class="fists">
+        <img src="img/fists.png" alt="" class="fists reveal reveal-bottom">
    </section>
 
     <section class="regionalrates">
 
-        <h3>Analyse régionale et départementale par année</h3>
+        <h3 class="reveal reveal-bottom">Analyse régionale et départementale par année</h3>
 
-        <div class="controls">
+        <div class="controls reveal reveal-bottom">
             <div class="localisation">
                 <button id="btn-regions" class="active">Afficher par régions</button>
                 <button id="btn-departements">Afficher par départements</button>
@@ -141,13 +141,13 @@
             <div class="year">
                 <label for="yearSelector"><span class="arrow sr-only">Sélectionnez une année</span></label>
                 <select id="yearSelector"></select>
-                <div id="currentYear" style="display: none;"></div>
+                <div id="currentYear" class="currentYear"></div>
             </div>
     
         </div>
         
         
-        <div class="frenchmap">
+        <div class="frenchmap reveal reveal-bottom">
             <div id="map" style="height: 710px"></div>
         
             <div class="txt-map">
@@ -187,7 +187,7 @@
             
     </div>
         
-    <div class="other-legend">
+    <div class="other-legend reveal reveal-bottom">
         <p class="src-map">Source:&nbsp;<a href="https://unehistoireduconflitpolitique.fr/telecharger.html">Une Histoire du Conflit Politique</a></p>
         <button id="comments-button" class="comments-btn"><span class="sr-only">Afficher les remarques</span><i class="fa-solid fa-lightbulb"></i></button>
     </div>
@@ -210,10 +210,10 @@
 
     
     <section class="today">
-        <h3>Où en sommes-nous aujourd'hui ?</h3>
+        <h3 class="reveal reveal-bottom">Où en sommes-nous aujourd'hui ?</h3>
 
         <div class="container-today">
-            <div class="txt-today">
+            <div class="txt-today reveal reveal-bottom">
                 <p>La victoire du <span class="imp-terms">Rassemblement National aux élections européennes de 2024</span> a marqué un tournant décisif pour la politique française. Ce succès, illustrant la montée de l’extrême droite, a accentué la division croissante au sein de l’électorat et renforcé le sentiment de déconnexion des citoyens avec les partis traditionnels. Ce climat de mécontentement a poussé Emmanuel Macron à prendre une décision exceptionnelle: <span class="imp-terms">la dissolution de l'Assemblée nationale</span>.</p>  
     
                 <p>Cette mesure a été perçue comme une réponse à la crise politique actuelle, cherchant à redonner légitimité démocratique en offrant aux Français la possibilité de renouveler leurs représentants. Dans ce contexte tendu, le taux d'abstention observé lors du <span class="imp-terms">premier tour des élections législatives de 2024 a chuté à 33,3 %</span>, marquant une nette amélioration par rapport aux <span class="imp-terms">53,2 % enregistrés en 2022</span>. Ce regain de participation témoigne d'une volonté de la part des électeurs de réaffirmer leur engagement dans un contexte politique incertain.</p>            
@@ -224,18 +224,18 @@
     
             </div>
             
-            <img src="img/loudspeaker.png" alt="" class="loudspeaker">
+            <img src="img/loudspeaker.png" alt="" class="loudspeaker reveal reveal-bottom">
         </div>
     </section>
     
 
     <section class="act">
-        <h3>Ensemble, faisons la différence</h3>
-        <details open class="details-act">
+        <h3 class="reveal reveal-bottom">Ensemble, faisons la différence</h3>
+        <details open class="details-act reveal reveal-bottom">
             <summary class="summary-act">Pourquoi devrais-je m'engager ?</summary>
             L'abstention prive les citoyens de l’opportunité de faire entendre leur voix. Agir, c’est participer à la construction d’un avenir meilleur pour tous. Chaque action compte, que ce soit en votant, en s’informant ou en agissant au quotidien.
         </details>
-        <details class="details-act">
+        <details class="details-act reveal reveal-bottom">
             <summary class="summary-act">Comment puis-je agir concrètement ?</summary>
             <ul>
                 <li><b>Voter:</b> chaque élection est une occasion de faire entendre votre voix.</li>
@@ -245,32 +245,32 @@
                 <li><b>Faire entendre ma voix:</b> signez des pétitions, écrivez à vos élus.</li>
             </ul>
         </details>
-        <details class="details-act">
+        <details class="details-act reveal reveal-bottom">
             <summary class="summary-act">Pourquoi l’engagement est-il important ?</summary>
             Chaque action individuelle peut avoir un impact collectif. En vous engageant, vous contribuez à des changements positifs dans votre communauté et à des décisions qui affectent votre vie et celle des autres.
         </details>
-        <details class="details-act">
+        <details class="details-act reveal reveal-bottom">
             <summary class="summary-act">Comment commencer ?</summary>
             Il suffit de commencer petit : lisez, discutez, votez. De petites actions quotidiennes peuvent conduire à un grand changement. Nous vous fournissons les outils nécessaires pour agir à votre échelle.
         </details>
     </section>
 
     <footer id="footer">
-            <p>Site réalisé par <a href="https://www.linkedin.com/in/justinethebault/">Justine Thebault</a>, <a href="">Ramata Wagne</a> et <a href="">Laure Missie</a></p>
+            <p class="reveal reveal-bottom">Site réalisé par <a href="https://www.linkedin.com/in/justinethebault/" aria-label="Accéder au compte Linkedin de Justine Thebault">Justine Thebault</a>, <a href="https://www.linkedin.com/in/ramata-wagne-769551261/" aria-label="Accéder au compte Linkedin de Ramata Wagne">Ramata Wagne</a> et <a href="https://www.linkedin.com/in/laure-missie/" aria-label="Accéder au compte Linkedin de Laure Missie">Laure Missie</a></p>
 
-            <ul>
+            <ul class="reveal reveal-bottom">
                 <li><a href="mentionslegales.html">Mentions légales&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
                 <li><a href="src.html">Sources&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
             </ul>
     
-            <p class="copyright">&copy; 2024 Databstention. Tous droits réservés.</p>
+            <p class="copyright reveal reveal-bottom">&copy; 2024 Databstention. Tous droits réservés.</p>
 
     </footer>
 
 
      
     <!-- Bouton pour remonter la page--->
-    <div class="home">
+    <div class="home reveal reveal-bottom">
         <a href="#top"><span class="sr-only">Accueil</span><i class="fa-solid fa-house"></i></a>
     </div>
 

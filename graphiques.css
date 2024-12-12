@@ -193,3 +193,8 @@
 .comments-btn:hover{
     color: #ee9235;
 }
+
+
+.currentYear{
+    display: none;
+}

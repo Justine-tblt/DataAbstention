@@ -216,18 +216,15 @@ async function chargerDonnees() {
     return response.json();
 }
 
-// Fonction pour charger les années disponibles entre 1958 et 2022
-async function chargerAnnéesDisponibles() {
+async function annees() {
     const donnees = await chargerDonnees();
 
     // Extraire les années et filtrer celles entre 1958 et 2022
     const anneesDisponibles = [...new Set(donnees.map(d => d.source.match(/\d+/)[0]))]
-        .filter(annee => annee >= 1958 && annee <= 2022) // Limiter la plage d'années
-        .sort();  // Tri des années
-
+        .filter(annee => annee >= 1958 && annee <= 2022)
+        .sort();
     const yearSelector = document.getElementById('yearSelector');
 
-    // Ajouter des options pour chaque année filtrée
     anneesDisponibles.forEach(annee => {
         const option = document.createElement('option');
         option.value = annee;
@@ -235,18 +232,15 @@ async function chargerAnnéesDisponibles() {
         yearSelector.appendChild(option);
     });
 
-    // Écouter le changement d'année dans le sélecteur
     yearSelector.addEventListener('change', (event) => {
         currentYear = event.target.value;
         document.getElementById('currentYear').textContent = currentYear;
         afficherCarte(currentYear, currentMode);
     });
 
-    // Initialiser avec la dernière année disponible
     currentYear = anneesDisponibles[anneesDisponibles.length - 1];
     document.getElementById('currentYear').textContent = currentYear;
     yearSelector.value = currentYear;
-
 
 
 }
@@ -268,7 +262,7 @@ function calculerAbstention(donnees, annee, mode) {
 }
 
 // Fonction pour déterminer la couleur en fonction du taux d'abstention
-function getColor(taux) {
+function colorAbstention(taux) {
     if (taux < 20) return '#297cf8';
     if (taux < 30) return '#47bd47';
     if (taux < 40) return '#fadf72';
@@ -277,7 +271,6 @@ function getColor(taux) {
 }
 
 
-// Fonction pour afficher la carte avec les taux d'abstention pour une année et un mode donné
 async function afficherCarte(annee, mode) {
     const donnees = await chargerDonnees();
     const tauxAbstention = calculerAbstention(donnees, annee, mode);
@@ -288,20 +281,16 @@ async function afficherCarte(annee, mode) {
     const response = await fetch(geojsonUrl);
     const geojsonData = await response.json();
 
-    // Supprimer les couches précédentes
     map.eachLayer(layer => {
         if (layer.options && !layer._url) map.removeLayer(layer);
     });
 
-    // Ajouter les données géographiques à la carte
     L.geoJson(geojsonData, {
         style: feature => {
             const key = mode === "regions" ? feature.properties.nom : feature.properties.code;
             const taux = tauxAbstention[key] || 0;
-
-
             return {
-                fillColor: getColor(taux),
+                fillColor: colorAbstention(taux),
                 fillOpacity: 0.7,
                 weight: 1,
                 color: '#000000'
@@ -316,7 +305,7 @@ async function afficherCarte(annee, mode) {
     }).addTo(map);
 }
 
-// Changement de mode : régions ou départements
+
 document.getElementById('btn-regions').addEventListener('click', () => {
     currentMode = "regions";
     afficherCarte(currentYear, currentMode);
@@ -327,10 +316,7 @@ document.getElementById('btn-departements').addEventListener('click', () => {
     afficherCarte(currentYear, currentMode);
 });
 
-// Initialisation de l'année et de la carte
-chargerAnnéesDisponibles();
-
-// Initialisation de la carte avec les données de la dernière année disponible
+annees();
 afficherCarte(currentYear, currentMode);
 
 
